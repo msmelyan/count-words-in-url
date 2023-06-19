@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Count</title>
+</head>
+<body>
+    <form method="POST" action="/">
+        <label for="url">Enter a URL:</label>
+        <input type="text" id="url" name="url">
+        <button type="submit">Count words</button>
+    </form>
+    {% if count is not none %}
+        <p>Word count: {{ count }}</p>
+    {% endif %}
+    {% if error %}
+        <p>{{ error }}</p>
+    {% endif %}
+</body>
+</html>
+
