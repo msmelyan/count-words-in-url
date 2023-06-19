@@ -1,2 +1,1 @@
-# web: gunicorn app:app
-web: gunicorn count:app
+web: gunicorn web.count:app
