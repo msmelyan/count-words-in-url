@@ -54,3 +54,8 @@ heroku addons:create heroku-redis
 # deploy both dynos on a single Heroku instance each
 heroku ps:scale web=1 worker=1 -a count-words-in-url 
 ```
+
+When you are done, you can destroy application, as follows
+```
+heroku apps:destroy --app count-words-in-url --confirm count-words-in-url
+```
