@@ -35,6 +35,6 @@ Make some changes to the code you just cloned and deploy them to Heroku using Gi
 $ git add .
 $ git commit -am "make it better"
 $ git push heroku master  # compile into heroku dynos (containers)
-$ heroku ps:scale web=1 worker=1 -a count-words-in-url # deploy both dynos
+$ heroku ps:scale web=1 worker=1 -a count-words-in-url # deploy both dynos on a single Heroku instance each
 ```
 
