@@ -15,29 +15,33 @@ Create Heroku [account](https://signup.heroku.com/), if you do not have one yet.
 
 Download and install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-command-line).
 
-Log in to your Heroku account and follow the prompts.
-```
-$ heroku login
-```
+
 
 Clone the repository
 Use Git to clone count-words-in-url's source code to your local machine.
 ```
-$ heroku git:clone -a count-words-in-url
+$ git clone https://github.com/msmelyan/count-words-in-url.git
 $ cd count-words-in-url
 ```
 
 Direcotry contains web/ and worker/ subdirectory which implements corresponding processes. There is also Procfile in the root directory that specifies the commands to deploy processes. Those processes get compiled into Heroku containers, known as dynos.
 
-Compiler both pro
-Make some changes to the code you just cloned and deploy them to Heroku using Git.
+Log in to your Heroku account and follow the prompts.
+```
+$ heroku login
+```
+
+Make some changes to the code you just cloned, if desired, and commit them
 ```
 $ git add .
 $ git commit -am "make it better"
+```
+
+Compile and deploy them to Heroku using Git.
+```
 $ heroku create count-words-in-url # create application
-$ git push heroku main  # compile into heroku dynos (containers)
-$ heroku git:remote -a count-words-in-url
+$ heroku git:remote -a count-words-in-url # point to remote heroku repository
+$ git push heroku main  # compile code heroku dynos (containers)
 $ heroku addons:create heroku-redis # deploy redis
 $ heroku ps:scale web=1 worker=1 -a count-words-in-url # deploy both dynos on a single Heroku instance each
 ```
-
