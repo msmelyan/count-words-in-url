@@ -39,9 +39,18 @@ git commit -am "make it better"
 
 Compile and deploy them to Heroku using Git.
 ```
-heroku create count-words-in-url # create application
-heroku git:remote -a count-words-in-url # point to remote heroku repository
-git push heroku main  # compile code heroku dynos (containers)
-heroku addons:create heroku-redis # deploy redis
-heroku ps:scale web=1 worker=1 -a count-words-in-url # deploy both dynos on a single Heroku instance each
+# create application
+heroku create count-words-in-url
+
+# point to remote heroku repository
+heroku git:remote -a count-words-in-url
+
+# compile code heroku dynos (containers)
+git push heroku main
+
+# deploy redis
+heroku addons:create heroku-redis
+
+# deploy both dynos on a single Heroku instance each
+heroku ps:scale web=1 worker=1 -a count-words-in-url 
 ```
