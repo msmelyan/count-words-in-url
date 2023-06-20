@@ -33,8 +33,8 @@ $ heroku login
 
 Make some changes to the code you just cloned, if desired, and commit them
 ```
-$ git add .
-$ git commit -am "make it better"
+git add .
+git commit -am "make it better"
 ```
 
 Compile and deploy them to Heroku using Git.
