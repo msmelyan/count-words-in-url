@@ -37,22 +37,35 @@ git add .
 git commit -am "make it better"
 ```
 
-Compile and deploy them to Heroku using Git.
+You can create the application in Heroku by running the following command:
 ```
 # create application
 heroku create count-words-in-url
+```
 
+Running the above command initializes the Heroku application, creating a Git remote named heroku. Next, you can push the Git repository to this remote to trigger the building and deployment process:
+
+After pushing the master branch to the heroku remote, you’ll see that the output displays information about the building and deployment process:
+
+```
 # point to remote heroku repository
 heroku git:remote -a count-words-in-url
 
 # compile code heroku dynos (containers)
 git push heroku main
+```
 
+We also deploy managed redis service
+```
 # deploy redis
 heroku addons:create heroku-redis
+```
 
-# deploy both dynos on a single Heroku instance each
-heroku ps:scale web=1 worker=1 -a count-words-in-url 
+
+
+We can also scale  both dynos on a some number of  Heroku instances (1 in this case
+```
+heroku ps:scale web=2 worker=2 -a count-words-in-url 
 ```
 
 When you are done, you can destroy application, as follows
